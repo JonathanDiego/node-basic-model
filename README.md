@@ -1,1 +1,1 @@
-basic project with a node aplication
+basic project with a node application
