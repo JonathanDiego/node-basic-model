@@ -1,3 +1,1 @@
-"# node-basic-model" 
-"# node-basic-model" 
-"# node-basic-model" 
+basic project with a node aplication
