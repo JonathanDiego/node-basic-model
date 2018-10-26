@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<div>
+
+</div>
+
+<body>
+
+    <script>
+        fetch(`/`, {
+            method: 'GET'
+        }).then(data => {
+            return data.json();
+        }).then(characters => {
+            characters.forEach(character => {
+                createCharacterScreen(character);
+            });
+        });
+
+        function createCharacterScreen(character) {
+
+            let divName = document.createElement(`div`);
+            let inputName = document.createElement(`input`);
+            inputName.setAttribute(`type`, `text`);
+            inputName.id = character.name;
+            inputName.value = character.name;
+            divName.appendChild(inputName);
+            document.body.appendChild(divName);
+
+            let divImage = document.createElement(`div`);
+            let img = document.createElement(`img`);
+            img.src = URL.createObjectURL(new Blob([new Uint8Array(character.photo.image.data)], { type: 'image/png' }));
+            img.width = 130;
+            img.height = 200;
+            divImage.appendChild(img);
+            document.body.appendChild(divImage);
+
+        }
+    </script>
+</body>
+
+</html>
